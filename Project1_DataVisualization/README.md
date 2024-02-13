@@ -7,11 +7,11 @@
 
 First go to your desktop or where ever you'd like to store the repository
 
-`git clone git@github.com:Ben-Heinze/CSCI-347-Datamining.git`
+`git clone git@github.com:Ben-Heinze/CSCI-491-Data-Visualization.git`
 
 This will download a version of the repository to your local machine.
 
-`git remote add upstream git@github.com:Ben-Heinze/CSCI-347-Datamining.git`
+`git remote add upstream git@github.com:Ben-Heinze/CSCI-491-Data-Visualization.git`
 
 This will allow you to update the online repository. 
 
