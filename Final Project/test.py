@@ -14,23 +14,25 @@ num_data = data.drop(columns = ['coo_name','coa_name'])
 year = 2010
 subframe = data[data['year'] == year]   #Gets dataframe of specific year
 
-d_coo = {}
-d_coa = {}
-result = []
+d_coo = {} #Dictionary of country of origin (coo: d_coa)
+
 for index, series in subframe.iterrows():
     coo = series['coo_name']
     coa = series['coa_name']
     asylum_seekers = series['asylum_seekers']
+    d_coa = {}  #Dictionary for country of asylum (coa:numberOfAsylumSeekers)
     
     # counts the number of asylum_seekers from COO to COA
-    if coa not in d_coa:
-        d_coa[coa] = asylum_seekers
-    else:
-        d_coa[coa] += asylum_seekers
+    if asylum_seekers > 0:
+        if coa not in d_coa:
+            d_coa[coa] = asylum_seekers
+        else:
+            d_coa[coa] += asylum_seekers
     
     
     if coo not in d_coo:
-        d_coo[coo] = [d_coa]
+        if len(d_coa) > 0:
+            d_coo[coo] = [d_coa]
     else:
         d_coo[coo].append(d_coa)
 #print(d_coo)
